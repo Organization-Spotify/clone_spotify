@@ -4,7 +4,7 @@ import React from 'react';
 
 export default function FormLogin() {
   return (
-        <form>
+        <form className='md:w-[324px]'>
             <div className='pb-4'>
                 <div className='pb-2'>
                     <label className='font-bold text-sm'>E-mail ou nome de usuário</label>
