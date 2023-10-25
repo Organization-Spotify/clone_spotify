@@ -8,10 +8,82 @@ generator client {
 datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
+  relationMode = "prisma"
 }
 
 model User {
   id    Int     @id @default(autoincrement())
+  profile_pic String?
   email String  @unique
-  name  String
+  name  String @unique
+  password String 
+  created_playlists Playlist[] @relation("Creator_Song")
+}
+
+model Artist {
+  id    Int     @id @default(autoincrement())
+  published_audios Audio[]
+  about String
+  genre String
+  followed_by_listeners Listener[]
+}
+
+model Listener {
+  id    Int     @id @default(autoincrement())
+  is_premium Boolean
+  favorited_playlists Playlist[] 
+  favorited_songs Audio[] @relation("Liked_By")
+  following Artist[]
+
+}
+
+model Audio {
+  id    Int     @id @default(autoincrement())
+  id_artist Int
+  name String
+  reproduction_counter Int @default(0)
+  artist Artist  @relation(fields: [id_artist], references: [id])
+  is_in_playlists Playlist[]
+  favorited_by_users Listener[] @relation("Liked_By")
+  id_music_genre Int
+  id_podcast_genre Int
+  music_genre Music_Genre?  @relation(fields: [id_music_genre], references: [id])
+  podcast_genre PodCast_Genre? @relation(fields: [id_podcast_genre], references: [id])
+  release_date DateTime
+  @@index([id_artist])
+  @@index([id_podcast_genre])
+  @@index([id_music_genre])
+}
+
+
+
+model Playlist {
+  id    Int     @id @default(autoincrement())
+  name String
+  id_user Int
+  Creator User @relation("Creator_Song", fields: [id_user], references: [id])
+  audios Audio[]
+  description String?
+  favorited_by_users Listener[] 
+  id_music_genre Int
+  id_podcast_genre Int
+  music_genre Music_Genre?  @relation(fields: [id_music_genre], references: [id])
+  podcast_genre PodCast_Genre? @relation(fields: [id_podcast_genre], references: [id])
+
+  @@index([id_user])
+  @@index([id_music_genre])
+  @@index([id_podcast_genre])
+}
+
+model Music_Genre {
+  id    Int     @id @default(autoincrement())
+  name String
+  audios Audio[]
+  playlists Playlist[]
+}
+model PodCast_Genre {
+  id    Int     @id @default(autoincrement())
+  name String
+    audios Audio[]
+  playlists Playlist[]
 }
