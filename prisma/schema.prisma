@@ -18,10 +18,14 @@ model User {
   name  String @unique
   password String 
   created_playlists Playlist[] @relation("Creator_Song")
+  listener Listener?
+  artist Artist?
 }
 
 model Artist {
   id    Int     @id @default(autoincrement())
+  user_id Int @unique
+  user User @relation(fields: [user_id], references: [id])
   published_audios Audio[]
   about String
   genre String
@@ -30,11 +34,12 @@ model Artist {
 
 model Listener {
   id    Int     @id @default(autoincrement())
+  user_id Int @unique
+  user User @relation(fields: [user_id], references: [id])
   is_premium Boolean
   favorited_playlists Playlist[] 
   favorited_songs Audio[] @relation("Liked_By")
   following Artist[]
-
 }
 
 model Audio {
@@ -45,8 +50,8 @@ model Audio {
   artist Artist  @relation(fields: [id_artist], references: [id])
   is_in_playlists Playlist[]
   favorited_by_users Listener[] @relation("Liked_By")
-  id_music_genre Int
-  id_podcast_genre Int
+  id_music_genre Int?
+  id_podcast_genre Int?
   music_genre Music_Genre?  @relation(fields: [id_music_genre], references: [id])
   podcast_genre PodCast_Genre? @relation(fields: [id_podcast_genre], references: [id])
   release_date DateTime
@@ -76,13 +81,13 @@ model Playlist {
 }
 
 model Music_Genre {
-  id    Int     @id @default(autoincrement())
+  id    Int     @id 
   name String
   audios Audio[]
   playlists Playlist[]
 }
 model PodCast_Genre {
-  id    Int     @id @default(autoincrement())
+  id    Int     @id
   name String
     audios Audio[]
   playlists Playlist[]
