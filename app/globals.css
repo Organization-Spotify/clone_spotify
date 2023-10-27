@@ -7,3 +7,12 @@ html, body, :root{
   background-color: black;
   color-scheme: dark;
 }
+
+@keyframes progress {
+  from {
+    width: 0;
+  }
+  to {
+    width: 33.3333%;
+  }
+}

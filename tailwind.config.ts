@@ -18,6 +18,9 @@ const config: Config = {
         'spotify-gray': '#121212',
       },
     },
+    animation: {
+      'progress': 'progress 0.5s ease-in-out',
+    },
   },
   plugins: [],
 }
