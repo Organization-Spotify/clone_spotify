@@ -11,7 +11,7 @@ import ButtonsReg from './components/buttons';
 
 export default function Home() {
   const [type, setType] = useState<string>('etapa3');
-  let content: JSX.Element;
+  let content: any;
 
   if (type === 'etapa1') {
     content = (
@@ -86,7 +86,7 @@ export default function Home() {
                     </div>
                 </form>
             </main>)
-} else if (type === 'etapa3') {
+  } else if (type === 'etapa3') {
     content = (
         <main className='px-8'>
             <form className='flex flex-col w-full md:w-[436px] md:items-center'>
@@ -115,12 +115,13 @@ export default function Home() {
                     <div className='flex flex-col text-sm mb-4'>
                         <label htmlFor="">Data de nascimento</label>
                         <span className='text-zinc-400 mb-2'>Por que precisamos da sua data de nascimento? <a href='' className='underline'>Saiba mais.</a></span>
-                        
+
                     </div>
-                        
+
                 </form>
         </main>
-    )}
+    )
+  }
   return (
         <>
             {content}
