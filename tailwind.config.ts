@@ -1,4 +1,4 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from 'tailwindcss';
 
 const config: Config = {
   content: [
@@ -13,6 +13,13 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      colors: {
+        'spotify-green': '#1ed760',
+        'spotify-gray': '#121212',
+      },
+    },
+    animation: {
+      'progress': 'progress 0.5s ease-in-out',
     },
   },
   plugins: [],

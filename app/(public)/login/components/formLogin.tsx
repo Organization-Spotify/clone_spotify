@@ -9,13 +9,13 @@ export default function FormLogin() {
                 <div className='pb-2'>
                     <label className='font-bold text-sm'>E-mail ou nome de usuário</label>
                 </div>
-                <input className='w-full py-[10px] px-[14px] rounded-sm border bg-[#121212]' placeholder='E-mail ou nome de usuário'></input>
+                <input className='w-full py-[10px] px-[14px] rounded-sm border bg-spotify-gray' placeholder='E-mail ou nome de usuário'></input>
             </div>
             <div className='pb-4'>
                 <div className='pb-2'>
                     <label className='font-bold text-sm'>Senha</label>
                 </div>
-                <input className='w-full py-[10px] px-[14px] rounded-sm border bg-[#121212]' placeholder='Senha'></input>
+                <input className='w-full py-[10px] px-[14px] rounded-sm border bg-spotify-gray' placeholder='Senha'></input>
             </div>
             <div className='flex'>
                 <div className="inline-flex items-center ">
@@ -23,7 +23,7 @@ export default function FormLogin() {
                         <input
                             id="switch-5"
                             type="checkbox"
-                            className="peer absolute h-4 w-8 cursor-pointer appearance-none rounded-full bg-blue-gray-100 transition-colors duration-300 checked:bg-[#1ed760] peer-checked:border-[#1ed760] peer-checked:before:bg-[#1ed760]"
+                            className="peer absolute h-4 w-8 cursor-pointer appearance-none rounded-full bg-blue-gray-100 transition-colors duration-300 checked:bg-spotify-green peer-checked:border-spotify-green peer-checked:before:bg-spotify-green"
                         />
                         <label
                             htmlFor="switch-5"
@@ -39,7 +39,7 @@ export default function FormLogin() {
                 <p className='ml-3'>Lembrar de mim</p>
             </div>
             <div className='py-8'>
-            <button className='bg-[#1ed760] text-black w-full py-2 px-8 rounded-full'>
+            <button className='bg-spotify-green text-black w-full py-2 px-8 rounded-full'>
                 <h2 className='mx-[28px] my-[5px] text-sm font-bold'>Entrar</h2>
             </button>
             </div>
