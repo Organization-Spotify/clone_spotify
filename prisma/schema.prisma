@@ -36,7 +36,7 @@ model Listener {
   id    Int     @id @default(autoincrement())
   user_id Int @unique
   user User @relation(fields: [user_id], references: [id])
-  is_premium Boolean
+  is_premium Boolean @default(false)
   favorited_playlists Playlist[] 
   favorited_songs Audio[] @relation("Liked_By")
   following Artist[]
@@ -70,8 +70,8 @@ model Playlist {
   audios Audio[]
   description String?
   favorited_by_users Listener[] 
-  id_music_genre Int
-  id_podcast_genre Int
+  id_music_genre Int?
+  id_podcast_genre Int?
   music_genre Music_Genre?  @relation(fields: [id_music_genre], references: [id])
   podcast_genre PodCast_Genre? @relation(fields: [id_podcast_genre], references: [id])
 
