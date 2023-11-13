@@ -20,9 +20,10 @@ async function main() {
           email: "pedro200@hotmail.com",
           password: "pedropedro99"
         }
-      }
+      },
+      is_premium: false, // Adicione esta linha com o valor apropriado
     }
-  })
+  });
   const normalUser2 = await prisma.listener.create({
     data: {
       user: {
