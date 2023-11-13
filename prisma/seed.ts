@@ -32,7 +32,7 @@ async function main() {
           email: "albertmonolol@gmail.com",
           password: "nauberrti"
         }
-      }
+      },
       is_premium: false, // Adicione esta linha com o valor apropriado
     }
   })
@@ -44,7 +44,7 @@ async function main() {
           email: "josezinho@hotmail.com",
           password: "123"
         }
-      }
+      },
       is_premium: false, // Adicione esta linha com o valor apropriado
     }
   })
@@ -56,7 +56,7 @@ async function main() {
           email: "lucasaramei@hotmail.com",
           password: "234"
         }
-      }
+      },
       is_premium: false, // Adicione esta linha com o valor apropriado
     }
   })
@@ -68,7 +68,7 @@ async function main() {
           email: "isfake@fakezin.com",
           password: "1234"
         }
-      }
+      },
       is_premium: false, // Adicione esta linha com o valor apropriado
     }
   })
