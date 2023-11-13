@@ -32,7 +32,8 @@ async function main() {
           email: "albertmonolol@gmail.com",
           password: "nauberrti"
         }
-      }
+      },
+      is_premium: false, // Adicione esta linha com o valor apropriado
     }
   })
   const normalUser3 = await prisma.listener.create({
@@ -43,7 +44,8 @@ async function main() {
           email: "josezinho@hotmail.com",
           password: "123"
         }
-      }
+      },
+      is_premium: false, // Adicione esta linha com o valor apropriado
     }
   })
   const normalUser4 = await prisma.listener.create({
@@ -54,7 +56,8 @@ async function main() {
           email: "lucasaramei@hotmail.com",
           password: "234"
         }
-      }
+      },
+      is_premium: false, // Adicione esta linha com o valor apropriado
     }
   })
   const normalUser5 = await prisma.listener.create({
@@ -65,7 +68,8 @@ async function main() {
           email: "isfake@fakezin.com",
           password: "1234"
         }
-      }
+      },
+      is_premium: false, // Adicione esta linha com o valor apropriado
     }
   })
 
