@@ -33,6 +33,7 @@ async function main() {
           password: "nauberrti"
         }
       }
+      is_premium: false, // Adicione esta linha com o valor apropriado
     }
   })
   const normalUser3 = await prisma.listener.create({
@@ -44,6 +45,7 @@ async function main() {
           password: "123"
         }
       }
+      is_premium: false, // Adicione esta linha com o valor apropriado
     }
   })
   const normalUser4 = await prisma.listener.create({
@@ -55,6 +57,7 @@ async function main() {
           password: "234"
         }
       }
+      is_premium: false, // Adicione esta linha com o valor apropriado
     }
   })
   const normalUser5 = await prisma.listener.create({
@@ -66,6 +69,7 @@ async function main() {
           password: "1234"
         }
       }
+      is_premium: false, // Adicione esta linha com o valor apropriado
     }
   })
 
