@@ -10,7 +10,13 @@ import { IoIosArrowBack } from 'react-icons/io';
 import ButtonsReg from './components/buttons';
 
 export default function Home() {
-  const [type, setType] = useState<string>('etapa3');
+    const meses = [
+        'Janeiro', 'Fevereiro', 'Março', 'Abril',
+        'Maio', 'Junho', 'Julho', 'Agosto',
+        'Setembro', 'Outubro', 'Novembro', 'Dezembro'
+      ];
+
+  const [type, setType] = useState<string>('etapa4');
   let content: any;
 
   if (type === 'etapa1') {
@@ -88,8 +94,8 @@ export default function Home() {
             </main>)
   } else if (type === 'etapa3') {
     content = (
-        <main className='px-8'>
-            <form className='flex flex-col w-full md:w-[436px] md:items-center'>
+        <main className='px-8 flex justify-center md:h-[770px]'>
+            <section className='flex flex-col w-full md:w-[436px] md:items-center '>
                     <div className="flex-start flex h-0.5 w-full overflow-hidden rounded-sm bg-zinc-500 font-sans text-xs font-medium mt-8">
                         <div
                             className="flex w-1/3 h-full items-baseline justify-center overflow-hidden break-all bg-spotify-green text-white"
@@ -107,21 +113,129 @@ export default function Home() {
                                 <span className='font-semibold'>Fale de você</span>
                             </div>
                         </div>
-                    <div className='flex flex-col text-sm mb-5'>
-                        <label htmlFor="">Nome</label>
-                        <span className='text-zinc-400 mb-2'>Este nome aparecerá no seu perfil</span>
-                        <input type='text' className='w-full py-[10px] px-[14px] rounded-sm border bg-spotify-gray'></input>
+                    <div className='flex flex-col w-full md:w-[324px] md:items-center'>
+                        <div className='flex flex-col text-sm mb-5 w-full'>
+                            <label htmlFor="" className='font-semibold'>Nome</label>
+                            <span className='text-zinc-400 mb-2'>Este nome aparecerá no seu perfil</span>
+                            <input type='text' className='w-full py-[10px] px-[14px] rounded-sm border bg-spotify-gray'></input>
+                        </div>
+                        <div className='flex flex-col text-sm mb-4'>
+                            <label htmlFor="" className='font-semibold'>Data de nascimento</label>
+                            <span className='text-zinc-400 mb-2'>Por que precisamos da sua data de nascimento? <a href='' className='underline'>Saiba mais.</a></span>
+                            <div className='flex h-12 gap-x-2'>
+                                <input className='w-2/12 p-2 rounded-sm' placeholder='dd'></input>
+                                <select id="selectMes" className='w-6/12 p-2 rounded-sm display:none'>
+                                    <option value="" disabled>Mês</option>
+                                    {meses.map((mes, index) => (
+                                    <option key={index} value={mes}>
+                                        {mes}
+                                    </option>
+                                    ))}
+                                </select>
+                                <input className='w-4/12 p-2 rounded-sm' placeholder='aaaa' type='number'></input>
+                            </div>
+                        </div>
+                        <div className='flex flex-col mb-24'>
+                            <label htmlFor="">Gênero</label>
+                            <span className='text-zinc-400 mb-2 text-sm'>Usamos seu gênero para ajudar a personalizar nossas recomendações de conteúdo e anúncios para você.</span>
+                            <section className='grid grid-cols-3 text-sm font-semibold gap-y-2 md:grid-cols-2'>
+                                <div className=''>
+                                    <label className='flex items-center space-x-2 cursor-pointer'>
+                                        <input
+                                            type="radio"
+                                            name="options"
+                                            value="Homem"
+                                            className='before:content[""] peer relative h-4 w-4 cursor-pointer appearance-none rounded-full border border-blue-gray-200 text-spotify-green transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-4 checked:border-spotify-green hover:before:opacity-10'
+                                        />
+                                        <span className='ml-3'>Homem</span>
+                                    </label>
+                                </div>
+                                <div>
+                                    <label className='flex'>
+                                        <input
+                                            type="radio"
+                                            name="options"
+                                            value="Mulher"
+                                            className='before:content[""] peer relative h-4 w-4 cursor-pointer appearance-none rounded-full border border-blue-gray-200 text-spotify-green transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-4 checked:border-spotify-green hover:before:opacity-10'
+                                        />
+                                        <span className='ml-3'>Mulher</span>
+                                    </label>
+                                </div>
+                                <div>
+                                    <label className='flex'>
+                                        <input
+                                            type="radio"
+                                            name="options"
+                                            value="Não binário"
+                                            className='before:content[""] peer relative h-4 w-4 cursor-pointer appearance-none rounded-full border border-blue-gray-200 text-spotify-green transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-4 checked:border-spotify-green hover:before:opacity-10'
+                                        />
+                                        <span className='ml-3'>Não binário</span>
+                                    </label>
+                                </div>
+                                <div>
+                                    <label className='flex'>
+                                        <input
+                                            type="radio"
+                                            name="options"
+                                            value="Outro"
+                                            className='before:content[""] peer relative h-4 w-4 cursor-pointer appearance-none rounded-full border border-blue-gray-200 text-spotify-green transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-4 checked:border-spotify-green hover:before:opacity-10'
+                                        />
+                                        <span className='ml-3'>Outro</span>
+                                    </label>
+                                </div>
+                                <div>
+                                    <label className='flex'>
+                                        <input
+                                            type="radio"
+                                            name="options"
+                                            value="Prefiro não dizer"
+                                            className='before:content[""] peer relative h-4 w-4 cursor-pointer appearance-none rounded-full border border-blue-gray-200 text-spotify-green transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-4 checked:border-spotify-green hover:before:opacity-10'
+                                        />
+                                        <span className='ml-3'>Prefiro não dizer</span>
+                                    </label>
+                                </div>
+                            </section>
+                        </div>
+                        <button onClick={() => setType('etapa4')} className='bg-spotify-green text-black w-full py-2 px-8 rounded-full'>
+                                <h2 className='mx-[28px] my-[5px] text-sm font-bold'>Avançar</h2>
+                        </button>
                     </div>
-                    <div className='flex flex-col text-sm mb-4'>
-                        <label htmlFor="">Data de nascimento</label>
-                        <span className='text-zinc-400 mb-2'>Por que precisamos da sua data de nascimento? <a href='' className='underline'>Saiba mais.</a></span>
-
+                </section>
+        </main>
+    )
+  } else if (type === 'etapa4') {
+    content = (
+        <main className='px-8 flex justify-center md:h-[770px]'>
+            <form className='flex flex-col w-full md:w-[436px] md:items-center '>
+                    <div className="flex-start flex h-0.5 w-full overflow-hidden rounded-sm bg-zinc-500 font-sans text-xs font-medium mt-8">
+                        <div
+                            className="flex w-1/3 h-full items-baseline justify-center overflow-hidden break-all bg-spotify-green text-white"
+                        ></div>
+                        <div
+                            className="flex w-1/3 h-full items-baseline justify-center overflow-hidden break-all bg-spotify-green text-white"
+                        ></div>
+                        <div
+                            className="flex w-1/3 h-full items-baseline justify-center overflow-hidden break-all bg-spotify-green text-white animate-progress"
+                        ></div>
                     </div>
-
+                    <div className='flex w-full mb-4'>
+                            <button onClick={() => setType('etapa3')} className=' pr-4'>
+                                <IoIosArrowBack className='w-6 h-6 text-zinc-500' />
+                            </button>
+                            <div className='flex flex-col py-4 mr-14'>
+                                <span className='text-zinc-400'>Etapa 3 de 3</span>
+                                <span className='font-semibold'>Termos e condições</span>
+                            </div>
+                        </div>
+                    <div className='flex flex-col w-full md:w-[324px] md:items-center'>
+                        <button onClick={() => setType('etapa4')} className='bg-spotify-green text-black w-full py-2 px-8 rounded-full'>
+                                <h2 className='mx-[28px] my-[5px] text-sm font-bold'>Avançar</h2>
+                        </button>
+                    </div>
                 </form>
         </main>
     )
-  }
+    } 
   return (
         <>
             {content}
