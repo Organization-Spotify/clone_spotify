@@ -8,15 +8,16 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { IoIosArrowBack } from 'react-icons/io';
 import ButtonsReg from './components/buttons';
+import Checkbox from './components/checkbox';
 
 export default function Home() {
-    const meses = [
-        'Janeiro', 'Fevereiro', 'Março', 'Abril',
-        'Maio', 'Junho', 'Julho', 'Agosto',
-        'Setembro', 'Outubro', 'Novembro', 'Dezembro'
-      ];
+  const meses = [
+    'Janeiro', 'Fevereiro', 'Março', 'Abril',
+    'Maio', 'Junho', 'Julho', 'Agosto',
+    'Setembro', 'Outubro', 'Novembro', 'Dezembro',
+  ];
 
-  const [type, setType] = useState<string>('etapa4');
+  const [type, setType] = useState<string>('etapa1');
   let content: any;
 
   if (type === 'etapa1') {
@@ -65,8 +66,7 @@ export default function Home() {
                             className="flex w-1/3 h-full items-baseline justify-center overflow-hidden break-all bg-spotify-green text-white animate-progress"
                         ></div>
                     </div>
-                    <div className='flex flex-col md:w-[324px]'>
-                        <div className='flex w-full mb-4'>
+                    <div className='flex w-full mb-4'>
                             <button onClick={() => setType('etapa1')} className=' pr-4'>
                                 <IoIosArrowBack className='w-6 h-6 text-zinc-500' />
                             </button>
@@ -75,6 +75,7 @@ export default function Home() {
                                 <span className='font-semibold'>Crie uma senha</span>
                             </div>
                         </div>
+                    <div className='flex flex-col md:w-[324px]'>
                         <div className='pb-4'>
                             <div className='pb-2'>
                                 <label className='font-bold text-sm'>Senha</label>
@@ -226,16 +227,39 @@ export default function Home() {
                                 <span className='text-zinc-400'>Etapa 3 de 3</span>
                                 <span className='font-semibold'>Termos e condições</span>
                             </div>
-                        </div>
-                    <div className='flex flex-col w-full md:w-[324px] md:items-center'>
-                        <button onClick={() => setType('etapa4')} className='bg-spotify-green text-black w-full py-2 px-8 rounded-full'>
-                                <h2 className='mx-[28px] my-[5px] text-sm font-bold'>Avançar</h2>
-                        </button>
                     </div>
-                </form>
+                    <section className='w-full flex flex-col mt-4 gap-y-2 text-xs font-medium mb-44 md:w-[324px] md:items-center'>
+                        <div className='flex flex-row py-4 pl-4 bg-spotify-gray rounded-md'>
+                            <div>
+                                <Checkbox/>
+                            </div>
+                            <span className='pr-6 flex items-center'>Não quero receber mensagens de marketing do Spotify</span>
+                        </div>
+                        <div className='flex flex-row py-4 pl-4 bg-spotify-gray rounded-md'>
+                            <div>
+                                <Checkbox/>
+                            </div>
+                            <span className='pr-6 flex items-center'>Compartilhar meus dados cadastrais com os provedores de conteúdo do Spotify para fins de marketing.</span>
+                        </div>
+                        <div className='flex flex-row py-4 pl-4 bg-spotify-gray rounded-md'>
+                            <div>
+                                <Checkbox/>
+                            </div>
+                            <span className='pr-6 flex items-center'><div>Eu concordo com os <a href='#' className='text-spotify-green underline'> Termos e Condições de Uso do Spotify</a>.</div></span>
+                        </div>
+                        <span className=''>
+                            Para saber mais sobre como o Spotify coleta, utiliza, compartilha e protege seus dados pessoais, leia a <a href='#' className='text-spotify-green underline'> Política de Privacidade do Spotify</a>.
+                        </span>
+                    </section>
+                    <Link href={'/'} className='flex flex-col w-full md:w-[324px] md:items-center'>
+                            <button className='bg-spotify-green text-black w-full py-2 px-8 rounded-full'>
+                                    <h2 className='mx-[28px] my-[5px] text-sm font-bold'>Inscrever-se</h2>
+                            </button>
+                    </Link>
+            </form>
         </main>
     )
-    } 
+  }
   return (
         <>
             {content}
